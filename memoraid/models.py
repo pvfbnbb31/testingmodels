@@ -36,7 +36,7 @@ class Course(models.Model):
 	relation_to = models.CharField(max_length=30)
 	relation_description = models.CharField(max_length=80)
 	def __unicode__(self):
-        return self.course_tag, self.course_description, self.relation_to, self.relation_description
+		return self.course_tag, self.course_description, self.relation_to, self.relation_description
 	
 class Lists(models.Model):
 	courses = models.ForeignKey(Course)
@@ -45,7 +45,7 @@ class Lists(models.Model):
 	relation_to = models.CharField(max_length=30)
 	relation_description = models.CharField(max_length=80)	
 	def __unicode__(self):
-        return self.lists_name, self.lists_description, self.relation_to, self.relation_description
+		return self.lists_name, self.lists_description, self.relation_to, self.relation_description
 	
 class Element(models.Model):
 	lists = models.ForeignKey(Lists)
@@ -54,4 +54,4 @@ class Element(models.Model):
 	relation_to = models.CharField(max_length=30)
 	relation_description = models.CharField(max_length=80)	
 	def __unicode__(self):
-        return self.element_name, self.element_description, self.relation_to, self.relation_description
+		return self.element_name, self.element_description, self.relation_to, self.relation_description
