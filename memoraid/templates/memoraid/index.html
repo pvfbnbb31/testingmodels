@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Memoraid {% endblock %}
+
+{% block content %}
+
+{% if latest_memoraid_list %}
+    <ul>
+    {% for memoraid in latest_memoraid_list %}
+		<li>
+			<a href="{% url 'memoraid:detail' memoraid.id %}">{{ memoraid.memoraid_text }}</a>
+		</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p><strong>Please Login or Register</strong></p>
+{% endif %}
+
+{% endblock %}

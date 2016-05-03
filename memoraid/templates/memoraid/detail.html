@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ memoraid.memoraid_text }}{% endblock %}
+
+{% block content %}
+
+<!-- bootstrap Alerts - http://getbootstrap.com/components/#alerts -->
+{% if error_message %}<div class="alert alert-danger">{{ error_message }}</div>{% endif %}
+
+<h2>{{ memoraid.memoraid_text }}</h2>
+
+<form action="{% url 'choices:vote' memoraid.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+	<div class="radio">
+    <label for="choice{{ forloop.counter }}">
+		<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    {{ choice.choice_text }}</label>
+	</div>
+{% endfor %}
+<!-- bootsrap Buttons - http://getbootstrap.com/css/#buttons -->
+<input class="btn btn-default" type="submit" value="Vote">
+</form>
+
+{% endblock %}
