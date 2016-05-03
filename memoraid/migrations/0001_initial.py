@@ -33,6 +33,19 @@ class Migration(migrations.Migration):
             },
             bases=(models.Model,),
         ),
+        migrations.CreateModel(
+            name='Courses',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('course_tag', models.CharField(max_length=5)),
+				('course_description', models.CharField(max_length=80)),
+				('relation_to', models.CharField(max_length=30)),
+				('relation_description', models.CharField(max_length=80)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
         migrations.AddField(
             model_name='choice',
             name='memoraid',
